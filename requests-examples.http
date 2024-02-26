@@ -1,0 +1,56 @@
+# примеры API-запросов
+
+#@baseUrl = https://localhost:8000/api
+
+# получение объявлений +
+GET http://127.0.0.1:8000/api/advertisements/
+Content-Type: application/json
+
+###
+
+# создание объявления +
+POST http://127.0.0.1:8000/api/advertisements/
+Content-Type: application/json
+Authorization: Token 3e346b46f4372019d78466979a49b54b9c88ae84
+
+{
+  "title": "Тумба5",
+  "description": "Для ванной комнаты",
+  "status": "OPEN"
+}
+
+###
+
+# попытка поменять объявление +
+PATCH http://127.0.0.1:8000/api/advertisements/62/
+Content-Type: application/json
+Authorization: Token 3e346b46f4372019d78466979a49b54b9c88ae84
+
+{
+  "status": "OPEN"
+}
+
+###
+
+# фильтрация по создателю +
+GET http://127.0.0.1:8000/api/advertisements/?creator=2
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET http://127.0.0.1:8000/api/advertisements/?created_at_before=2022-01-21
+Content-Type: application/json
+
+###
+
+# фильтрация по статусу +
+GET http://127.0.0.1:8000/api/advertisements/?status=CLOSED
+Content-Type: application/json
+
+###
+
+# удаление объявления +
+DELETE http://127.0.0.1:8000/api/advertisements/7/
+Content-Type: application/json
+Authorization: Token 3e346b46f4372019d78466979a49b54b9c88ae84
